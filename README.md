@@ -28,12 +28,12 @@ A simple Django task management application with user authentication and CRUD op
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/django-task-manager.git
+    git clone https://github.com/Rafi1115/task-manager.git
     ```
 2. **Navigate to the project directory:**
 
     ```bash
-    cd django-task-manager
+    cd task-manager
     ```
 3. **Create Virtualenv**
    ```bash
