@@ -60,11 +60,10 @@ Update `your_postgresql_database_url` and `your_django_secret_key` with your act
 
 Apply migrations:
 
-```bash``
+```bash
+python manage.py makemigrations
 python manage.py migrate
-
-bash
-Copy code
+```
 python manage.py migrate
 Documentation
 Running the Project
@@ -75,12 +74,14 @@ The project will be accessible at http://127.0.0.1:8000/.
 
 ## API Endpoints
 The API provides the following endpoints:
-
+```
 List Tasks: GET /api/tasks/
 Retrieve Task: GET /api/tasks/{task_id}/
 Create Task: POST /api/tasks/
 Update Task: PUT /api/tasks/{task_id}/
 Delete Task: DELETE /api/tasks/{task_id}/
+
+```
 Make requests using your preferred API client (e.g., Postman).
 
-Remember to populate the .env file, set up the database, and apply migrations before running the project.
+Remember to populate the .env file and create media folder at the root, set up the database, and apply migrations before running the project.
