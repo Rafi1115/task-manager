@@ -43,7 +43,7 @@ A simple Django task management application with user authentication and CRUD op
 
 Create a `.env` file in the `task_manager` folder and add the following environment variables:
 
-```plaintext```
+```plaintext
 SECRET_KEY=''
 DB_NAME=''
 DB_USER=''
@@ -55,7 +55,7 @@ EMAIL_HOST=''
 EMAIL_PORT=''
 EMAIL_HOST_USER=''
 EMAIL_HOST_PASSWORD=''
-
+```
 ## Update
 
 Before proceeding, ensure you have created a `.env` file in the `task_manager` folder with the following environment variables:
