@@ -46,9 +46,13 @@ class TaskCreateView(CreateView):
         form.instance.assigned_user = self.request.user
         response = super().form_valid(form)
 
-        photos = self.request.FILES.getlist('photos')
-        for photo in photos:
-            TaskPhoto.objects.create(task=self.object, photo=photo)
+        try:
+            photos = self.request.FILES.getlist('photos')
+            for photo in photos:
+                TaskPhoto.objects.create(task=self.object, photo=photo)
+            messages.success(self.request, 'Task and Photo uploaded successfully.')
+        except Exception as e:
+            messages.error(self.request, f"Error uploading photos: {str(e)}")
 
         return response
 
@@ -71,6 +75,7 @@ class TaskDeleteView(DeleteView):
     def get_queryset(self):
         return Task.objects.filter(assigned_user=self.request.user)
     
+    
 @method_decorator(login_required, name='dispatch')
 class TaskPhotoDeleteView(View):
     def post(self, request, pk):
@@ -80,9 +85,12 @@ class TaskPhotoDeleteView(View):
             messages.error(request, 'Permission denied. You cannot delete this photo.')
             return redirect('tasks:task-detail', pk=task_photo.task.pk)
 
-        task_photo.delete()
+        try:
+            task_photo.delete()
+            messages.success(self.request, "Photo deleted successfully.")
+        except Exception as e:
+            messages.error(self.request, f"Error deleting photo: {str(e)}")
 
-        messages.success(request, 'Photo deleted successfully.')
         return redirect('tasks:task-detail', pk=task_photo.task.pk)
 
 @method_decorator(login_required, name='dispatch')

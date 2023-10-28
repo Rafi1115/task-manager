@@ -20,6 +20,10 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['-created_at']
+        
 
 class TaskPhoto(models.Model):
     task = models.ForeignKey(Task, related_name='photos', on_delete=models.CASCADE)
