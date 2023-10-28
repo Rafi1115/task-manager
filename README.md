@@ -21,6 +21,7 @@ A simple Django task management application with user authentication and CRUD op
 - Python 3.x
 - Django
 - PostgreSQL
+- mailtrap.io
 
 ### Installation
 
@@ -30,13 +31,7 @@ A simple Django task management application with user authentication and CRUD op
     git clone https://github.com/your-username/django-task-manager.git
     ```
 
-2. **Navigate to the project directory:**
-
-    ```bash
-    cd django-task-manager
-    ```
-
-3. **Install dependencies:**
+2. **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
@@ -46,16 +41,38 @@ A simple Django task management application with user authentication and CRUD op
 
 ### Environment Variables
 
-Create a `.env` file in the project root and add the following environment variables:
+Create a `.env` file in the `task_manager` folder and add the following environment variables:
 
 ```plaintext```
-DATABASE_URL=your_postgresql_database_url
-SECRET_KEY=your_django_secret_key
+SECRET_KEY=''
+DB_NAME=''
+DB_USER=''
+DB_PASSWORD=''
+DB_HOST=''
+DB_PORT=''
+
+EMAIL_HOST=''
+EMAIL_PORT=''
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
 
 ## Update
 
-Update `your_postgresql_database_url` and `your_django_secret_key` with your actual database URL and Django secret key.
+Before proceeding, ensure you have created a `.env` file in the `task_manager` folder with the following environment variables:
 
+```plaintext
+SECRET_KEY=''
+DB_NAME=''
+DB_USER=''
+DB_PASSWORD=''
+DB_HOST=''
+DB_PORT=''
+
+EMAIL_HOST=''
+EMAIL_PORT=''
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+```
 ### Database Setup
 
 Apply migrations:
@@ -64,13 +81,10 @@ Apply migrations:
 python manage.py makemigrations
 python manage.py migrate
 ```
-python manage.py migrate
-Documentation
+### Documentation
 Running the Project
-bash
-Copy code
-python manage.py runserver
-The project will be accessible at http://127.0.0.1:8000/.
+```python manage.py runserver```
+The project will be accessible at http://127.0.0.1:8000/tasks/.
 
 ## API Endpoints
 The API provides the following endpoints:
@@ -84,4 +98,4 @@ Delete Task: DELETE /api/tasks/{task_id}/
 ```
 Make requests using your preferred API client (e.g., Postman).
 
-Remember to populate the .env file and create media folder at the root, set up the database, and apply migrations before running the project.
+Remember to populate the ```.env``` file and create ```media``` folder at the root, set up the database, and apply migrations before running the project.
