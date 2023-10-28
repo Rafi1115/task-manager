@@ -48,15 +48,20 @@ A simple Django task management application with user authentication and CRUD op
 
 Create a `.env` file in the project root and add the following environment variables:
 
-```plaintext
+```plaintext```
 DATABASE_URL=your_postgresql_database_url
 SECRET_KEY=your_django_secret_key
 
+## Update
 
-Update your_postgresql_database_url and your_django_secret_key with your actual database URL and Django secret key.
+Update `your_postgresql_database_url` and `your_django_secret_key` with your actual database URL and Django secret key.
 
-Database Setup
+### Database Setup
+
 Apply migrations:
+
+```bash``
+python manage.py migrate
 
 bash
 Copy code
@@ -68,7 +73,7 @@ Copy code
 python manage.py runserver
 The project will be accessible at http://127.0.0.1:8000/.
 
-API Endpoints
+## API Endpoints
 The API provides the following endpoints:
 
 List Tasks: GET /api/tasks/
