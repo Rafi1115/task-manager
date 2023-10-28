@@ -30,8 +30,17 @@ A simple Django task management application with user authentication and CRUD op
     ```bash
     git clone https://github.com/your-username/django-task-manager.git
     ```
+2. **Navigate to the project directory:**
 
-2. **Install dependencies:**
+    ```bash
+    cd django-task-manager
+    ```
+3. **Create Virtualenv**
+   ```bash
+   pipenv shell
+      ```
+
+4. **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
