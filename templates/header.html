@@ -1,0 +1,24 @@
+<header
+class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+
+<h4 style="color: rgb(20, 117, 44); font-weight: bolder;">Task Manager</h4>
+
+<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+  <li><a href="{% url 'tasks:task-list' %}" class="nav-link px-2 secondary">Task List</a></li>
+  <li><a href="{% url 'tasks:task-create' %}" class="nav-link px-2 secondary">Create</a></li>
+</ul>
+
+<div class="col-md-3 text-end">
+  {% if user.is_authenticated %}
+
+  <a href="{% url 'logout' %}" class="btn btn-outline-primary me-2">Logout</a>
+  {% else %}
+  <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
+
+  <a href="{% url 'register:register' %}" class="btn btn-primary">Sign-up</a>
+  {% endif %}
+
+</div>
+
+</header>

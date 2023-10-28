@@ -76,11 +76,13 @@ class TaskPhotoDeleteView(View):
     def post(self, request, pk):
         task_photo = get_object_or_404(TaskPhoto, pk=pk)
 
-        # Check if the user has permission to delete the photo
         if task_photo.task.assigned_user != self.request.user:
+            messages.error(request, 'Permission denied. You cannot delete this photo.')
             return redirect('tasks:task-detail', pk=task_photo.task.pk)
 
         task_photo.delete()
+
+        messages.success(request, 'Photo deleted successfully.')
         return redirect('tasks:task-detail', pk=task_photo.task.pk)
 
 @method_decorator(login_required, name='dispatch')
