@@ -7,6 +7,9 @@ from .views import (
     TaskDeleteView,
     TaskPhotoDeleteView,
     TaskFilterView,
+    TaskDetailAPIView, 
+    TaskListAPIView,
+    
 )
 
 app_name = "tasks"
@@ -21,5 +24,8 @@ urlpatterns = [
     path("tasks/<int:pk>/photo/delete/", TaskPhotoDeleteView.as_view(), name="task-photo-delete"),
     path('tasks/filter/', TaskFilterView.as_view(), name='task-list-filter'),
 
-  
+    path('api/tasks/', TaskListAPIView.as_view(), name='api-task-list'),
+    path('api/tasks/<int:pk>/', TaskDetailAPIView.as_view(), name='api-task-detail'),
+
 ]
+

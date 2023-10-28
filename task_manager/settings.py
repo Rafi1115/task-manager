@@ -46,8 +46,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'fontawesomefree',
     'django_filters',
-
-
+    'rest_framework',
 ]
 
 
