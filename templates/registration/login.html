@@ -1,0 +1,24 @@
+{% extends "registration/register_base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <a href="{% url 'password_reset' %}">Forgot password?</a>
+        <input type="submit" class="button" value="Login">
+      </form>
+
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <a href="{% url 'register:register' %}">Signup</a>
+        </span>
+      </div>
+  </div>
+
+  {% endblock content %}

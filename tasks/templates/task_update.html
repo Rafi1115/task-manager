@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+
+{% block title %}Update Task{% endblock %}
+
+{% block content %}
+  <form method="post" class="container">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-outline-success">Update Task</button>
+  </form>
+  <br>
+  <a href="{% url 'tasks:task-detail' task.id %}" class="btn btn-info">Back to Task Detail</a>
+{% endblock %}

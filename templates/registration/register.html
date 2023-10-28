@@ -1,0 +1,22 @@
+{% extends "registration/register_base.html" %}
+
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+  
+    <div class="login form">
+      <header>Signup</header>
+      <form method="post">
+        {% csrf_token %}
+        {{form}}
+
+        <input type="submit" class="button" value="Signup">
+      </form>
+      <div class="signup">
+        <span class="signup">Already have an account?
+         <a href="{% url 'login' %}">Login</a>
+        </span>
+      </div>
+
+{% endblock content %}  

@@ -1,0 +1,29 @@
+<form method="get" action="{% url 'tasks:task-list-filter' %}">
+    <input type="text" name="title" placeholder="Search by title">
+    <input type="date" name="created_at" placeholder="Created at">
+    <input type="date" name="due_date" placeholder="Due date">
+    <select name="priority">
+      <option value="" selected>Priority</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <div id="div_completion_status" class="form-group">
+      <div>
+          <select style="height: 36px;" name="completion_status" class="nullbooleanselect form-control"
+              id="id_completion_status">
+              <option value="unknown" selected="">Completion Status</option>
+              <option value="true">Paid</option>
+              <option value="false">Unpaid</option>
+          </select>
+      </div>
+  </div>
+    <label for="completion_status">Completed</label>
+    <button type="submit">Filter</button>
+</form>
+  
+  {% for task in tasks %}
+
+  {% endfor %}
+  
+  
